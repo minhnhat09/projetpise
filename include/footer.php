@@ -2,27 +2,24 @@
 				<footer id="footer">
 				      <ul class="footer-links-tt">
 						<li><p>À PROPOS DE T&T</P></li>
-						<li><a href="concept.html">Le concept</a> </li>
-						<li><a href="equipe.html">L'équipe</a> </li>
-						<li><a href="artist.html">Artistes</a> </li>
+						<li><a href="concept.php">Le concept</a> </li>
+						<li><a href="artistes.php">Artistes</a> </li>
 						
 						
 						 
 					  </ul> 
 					  <ul class="footer-links-main">
 						<li><p>ENTRE VOUS ET NOUS</P></li>
-						<li><a href="contact.html">Contactez-nous</a> </li>
-						<li><a href="livra.html">Livraison</a> </li>
-						<li><a href="retour.html">Retour et remboursement</a> </li>
-						<li><a href="paiement.html">Paiement</a> </li> 
+						<li><a href="contact.php">Contactez-nous</a> </li>
+						<li><a href="livraison.php">Livraison</a> </li>
+						<li><a href="paiement.php">Paiement et remboursement</a> </li> 
 					  </ul> 
 					  
 					  <ul class="footer-links-ouvre">
 						<li><p>LES OEUVRES</P></li>
-						<li><a href="peinture.html">Peinture</a> </li>
-						<li><a href="sculpture.html">Sculpture</a> </li>
-						<li><a href="photography.html">Photographies</a> </li>
-						<li><a href="nouveautes.html">Nouveautés</a> </li> 
+						<li><a href="collection-par-categorie.php?categorie=Peinture">Peinture</a> </li>
+						<li><a href="collection-par-categorie.php?categorie=Sculpture">Sculpture</a> </li>
+						<li><a href="collection-par-categorie.php?categorie=Photographie">Photographies</a> </li>
 					  </ul> 
 		   
 					  <div class="footer-sm">

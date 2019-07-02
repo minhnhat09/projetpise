@@ -11,7 +11,7 @@ if(!isset($_SESSION))
 		 <section class="index-banner">
 		   <div class="vertical-center">
 		   <a href="toutes-collections.php">
-		     <button class="btn">JE DÉCOUVRE</button>
+		     <button class="btn">VOIR TOUTES NOS OEUVRES</button>
 			 <h2>DÉCOUVREZ ET ACHETEZ L’ART QUE VOUS AIMEZ</h2>
 			   <h1>Nos experts dénichent pour vous les meilleurs artistes contemporains</h1>
 			</div> 
@@ -42,32 +42,32 @@ if(!isset($_SESSION))
 				</section>
 				<h2 class="index-price">Nos oeuvres à vendre par prix</h2>
 				<section class="index-links2">
-				   <a href="30.html">
+				   <a href="30.php">
 					  <div class="index-linkbox-rectangle1">
 						<h3>jusqu'à 30</h3>
 					  </div>
 				   </a>
-				   <a href="30-50.html">
+				   <a href="30-50.php">
 					  <div class="index-linkbox-squre1">
 						<h3>€30-€50</h3>
 					  </div>
 				   </a>
-				   <a href="50-70.html">
+				   <a href="50-70.php">
 					  <div class="index-linkbox-squre2">
 						<h3>€50-€70</h3>
 					  </div>
 				   </a>
-				   <a href="70-90.html">
+				   <a href="70-90.php">
 					  <div class="index-linkbox-squre3"">
 						<h3>€70-€90</h3>
 					  </div>
 				   </a>
-				   <a href="90-150.html">
+				   <a href="90-150.php">
 					  <div class="index-linkbox-squre4">
 						<h3>€90-€150</h3>
 					  </div>
 				   </a>
-				   <a href="plusde150.html">
+				   <a href="plusde150.php">
 					  <div class="index-linkbox-rectangle2"">
 						<h3>Plus de €150</h3>
 					  </div>
