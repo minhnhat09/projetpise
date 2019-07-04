@@ -109,7 +109,7 @@ function ListeTab($Tabcherche,$Col)
    // --- traitement des erreurs de retour sur la requête ---
    if (!$resultat)
    {
-     echo "Probl�me de requ�te sur la table";
+     echo "Problème de requête sur la table";
    }
    // --- un tableau associatif ---
    //$resultat->setFetchMode(PDO::FETCH_ASSOC); 

@@ -22,6 +22,7 @@
 	     <a href="index.php" class="header-brand"><img src="img/logo2.jpg" alt="Flo"></a>
 		  <nav>  
 			<ul>
+			<li><a href="index.php">accueil</a> </li>
 			   <li><a href="collection-par-categorie.php?categorie=Peinture">peinture</a> </li>
 			   <li><a href="collection-par-categorie.php?categorie=Sculpture">sculpture</a> </li>
 			   <li><a href="collection-par-categorie.php?categorie=Photographie">photographie</a> </li>
@@ -43,6 +44,7 @@
 					else
                     {	
 						echo '<a href="inscription.php" class="header-signup">S\' inscrire/ Se connecter</a>';
+						echo '<a href="panier.php" class="header-signup">Mon panier</a>';
 			 			
 					}
 			?>

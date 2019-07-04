@@ -60,7 +60,7 @@ if(!isset($_SESSION))
     			$Image = $UneOeuvre['Img_Oeuvre'];				
 				
 				?>
-		       <a href="peinture1.html">
+		       <a href="fiche-oeuvre.php?ID_Oeuvre=<?php echo $UneOeuvre['ID_Oeuvre'] ?>">
 				  <div class="peinture-link">
 				    <img src="<?php echo "$Image" ?>">
 				    <p class="p1"><?php echo "$Nom" ?></p>
