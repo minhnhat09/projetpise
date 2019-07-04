@@ -106,7 +106,7 @@ function ListeTab($Tabcherche,$Col)
    $resultat = $bdd->prepare($Requete_SQL); 
 	$resultat->execute();
    
-   // --- traitement des erreurs de retour sur la requ�te ---
+   // --- traitement des erreurs de retour sur la requête ---
    if (!$resultat)
    {
      echo "Probl�me de requ�te sur la table";
@@ -136,7 +136,7 @@ function ListeParID($Table,$Col,$ID)  // fonction de r�cup�ration de peintur
 		$Requete_SQL = 'SELECT * FROM '.$Table." WHERE ".$Col." = '".$ID."'";
 		$resultat = $bdd->prepare($Requete_SQL);
 		$resultat->execute();
-		$resultat->setFetchMode(PDO::FETCH_ASSOC); 
+		//$resultat->setFetchMode(PDO::FETCH_ASSOC); 
    	$TabFiltres = $resultat->fetchAll() ;
    		
    		return $TabFiltres;
@@ -189,6 +189,7 @@ function SuppressionOeuvre($ID_Oeuvre)
 function creationPanier(){
   if (!isset($_SESSION['panier'])){
      $_SESSION['panier']=array();
+     $_SESSION['panier']['ID_Oeuvre'] = array();
      $_SESSION['panier']['Nom_Oeuvre'] = array();
      $_SESSION['panier']['QteOeuvre'] = array();
      $_SESSION['panier']['Prix'] = array();
@@ -196,10 +197,9 @@ function creationPanier(){
   }
 }
 
-function ajouterOeuvreDansPanier($nom, $quantite, $prix)
+function ajouterOeuvreDansPanier($nom,$id, $quantite, $prix)
 {
-    creationDuPanier(); 
-
+    creationPanier(); 
     $position_Article = array_search($nom,$_SESSION['panier']['Nom_Oeuvre']);
     if($position_Article !== false)
     {
@@ -208,8 +208,30 @@ function ajouterOeuvreDansPanier($nom, $quantite, $prix)
     else
     {
         $_SESSION['panier']['Nom_Oeuvre'][] = $nom;
+        $_SESSION['panier']['ID_Oeuvre'][] = $id;
         $_SESSION['panier']['QteOeuvre'][] = $quantite;
         $_SESSION['panier']['Prix'][] = $prix;
+    }
+}
+function montantTotal()
+{
+   $total=0;
+   for($i = 0; $i < count($_SESSION['panier']['Nom_Oeuvre']); $i++)
+   {
+      $total += $_SESSION['panier']['QteOeuvre'][$i] * $_SESSION['panier']['Prix'][$i];
+   }
+   return round($total,2); 
+}
+
+function retirerProduitDuPanier($id_Oeuvre_a_supprimer)
+{
+    $position_Article = array_search($id_Oeuvre_a_supprimer,  $_SESSION['panier']['ID_Oeuvre']);
+    if ($position_Article !== false)
+    {
+        array_splice($_SESSION['panier']['Nom_Oeuvre'], $position_Article, 1);
+        array_splice($_SESSION['panier']['ID_Oeuvre'], $position_Article, 1);
+        array_splice($_SESSION['panier']['QteOeuvre'], $position_Article, 1);
+        array_splice($_SESSION['panier']['Prix'], $position_Article, 1);
     }
 }
 

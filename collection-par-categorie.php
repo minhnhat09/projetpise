@@ -47,7 +47,7 @@ if(!isset($_SESSION))
   				{
   				
 				?>
-		       <a href="detail_oeuvre.php?ID_Oeuvre=<?php echo $UneOeuvre['ID_Oeuvre'] ?>">
+		       <a href="fiche-oeuvre.php?ID_Oeuvre=<?php echo $UneOeuvre['ID_Oeuvre'] ?>">
 				  <div class="peinture-link">
 				    <img src="<?php echo $UneOeuvre['Img_Oeuvre']?>">
 				    <p class="p1"><?php echo $UneOeuvre['Nom_Oeuvre'] ?></p>

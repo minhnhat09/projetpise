@@ -11,6 +11,7 @@
         <?php
 		//--------------------------------- TRAITEMENTS PHP ---------------------------------//
         //si le formulaire est envoyé ("envoyé" signifie que le bouton submit est cliqué)
+        $reponse="";
         if(isset($_POST['valider'])){
             //vérifie si tous les champs sont bien  pris en compte:
             if(!isset($_POST['pseudo'],$_POST['mdp'],$_POST['mail'])){
@@ -66,8 +67,8 @@
 				<main>	 
 		  <div id="signup-box">
 		     <div class="signup-left-box">
-				<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-                <?php if(isset($_POST['valider'])) echo $reponse;?>
+                <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                <em><?php echo $reponse;?></em>
                 <h1>Créer votre compte</h1>
 		        <input type="text" name="pseudo" placeholder="Pseudo: de a à z et/ou de 0 à 9" required="required"/>
 		        <input type="text" name="mail" placeholder="Email: exemple@gmail.com" required="required"/>

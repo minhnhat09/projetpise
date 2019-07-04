@@ -276,7 +276,7 @@ vertical-center {
 	  padding: 12px 24px;
 	  border: 4px 4px solid;
 	  border-radius: 6px;
-	  color:#111;
+	  color:#fff;
   
 }
 .index-banner .btn:hover {
@@ -1736,3 +1736,6 @@ footer ul li a {
 	height:100px;
 }
 
+.messageMain {
+	margin: 1rem
+}
