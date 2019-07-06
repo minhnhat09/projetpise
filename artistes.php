@@ -136,7 +136,7 @@ if(!isset($_SESSION))
 				 <div class="artiste-link">
 				    <a href="#modalWindow5"> <img src="img/a4.jpg"> </a>
 				    <p class="p1">Mali Maeder </p>
-				    <p class="p2">américan</p>
+				    <p class="p2">américain</p>
 				    <p class="p3">4 œuvres</p> 
 				  </div>
 				   <div id="container-a">

@@ -11,7 +11,6 @@
         <?php
 		//--------------------------------- TRAITEMENTS PHP ---------------------------------//
         //si le formulaire est envoyé ("envoyé" signifie que le bouton submit est cliqué)
-        $reponse="";
         if(isset($_POST['valider'])){
             //vérifie si tous les champs sont bien  pris en compte:
             if(!isset($_POST['pseudo'],$_POST['mdp'],$_POST['mail'])){
@@ -64,11 +63,11 @@
         if(!isset($TraitementFini)){//quand le membre sera inscrit, on définira cette variable afin de cacher le formulaire
 		//--------------------------------- AFFICHAGE HTML ---------------------------------//
            ?>
-				<main>	 
+		<main>	 
 		  <div id="signup-box">
 		     <div class="signup-left-box">
-                <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-                <em><?php echo $reponse;?></em>
+				<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                <em><?php if(isset($_POST['valider'])) echo $reponse;?></em>
                 <h1>Créer votre compte</h1>
 		        <input type="text" name="pseudo" placeholder="Pseudo: de a à z et/ou de 0 à 9" required="required"/>
 		        <input type="text" name="mail" placeholder="Email: exemple@gmail.com" required="required"/>
@@ -80,7 +79,7 @@
 		     <div class="signup-right-box">
 		         <h1>Déjà membre ?</h1>
 				 
-		        <a href="connexion.php">Connexion</a>
+		        <a href="connexion.php"><input type="submit" value="Connexion"/></a>
 		     
 		     </div> 
 		     <div class="signup-or">or</div>

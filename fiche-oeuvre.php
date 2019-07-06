@@ -1,47 +1,75 @@
 <?php
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
+if (!isset($_SESSION)) {
+    session_start();
 }
-
-    // Appel de la fonction de connexion à la BDD
+// Appel de la fonction de connexion à la BDD
 include("include/fonction.php");
-
-	//Menu--> 
-		include("include/header.php");
+//Menu--> 
+include("include/header.php");
 //--------------------------------- TRAITEMENTS PHP ---------------------------------//
-if(isset($_GET['ID_Oeuvre']))  
-{ 
-	$resultat = ListeParID("oeuvre","ID_Oeuvre",$_GET['ID_Oeuvre']);
+?>
+<?php
+
+if (isset($_GET['ID_Oeuvre'])) {
+    $requeteUneOeuvre = ListeParID("oeuvre", "ID_Oeuvre", "=", $_GET['ID_Oeuvre']);
+    $resultat = $requeteUneOeuvre->fetch();
 }
-if(count($resultat)== 0) { header("location:collection-par-categorie.php"); exit(); }
+if (count($resultat) == 0) {
+    header("location:collection-par-categorie.php");
+    exit();
+}
 
-$contenu .= "<h2>Titre : ".$resultat[0]['Nom_Oeuvre']."</h2><hr><br>";
-$contenu .= "<p>Categorie: ".$resultat[0]['Cat_Oeuvre']."</p>";
-$contenu .= "<p>Taille:". $resultat[0]['Taille']."</p>";
-$contenu .= "<img src='".$resultat[0]['Img_Oeuvre']."' ='150' height='150'>";
-$contenu .= "<p><i>Artiste:". $resultat[0]['Artiste']."</i></p><br>";
-$contenu .= "<p>Prix :". $resultat[0]['Prix'] ."€</p><br>";
- 
-
-    $contenu .= '<form method="post" action="panier.php">';
-        $contenu .= "<input type='hidden' name='ID_Oeuvre' value='$_GET[ID_Oeuvre]'>";
-        $contenu .= '<label for="quantite">Quantité : </label>';
-        $contenu .= '<select id="quantite" name="quantite">';
-        for($i = 1; $i <= 5; $i++)
-            {
-                $contenu .= "<option>$i</option>";
-            }
-        $contenu .= '</select>';
-        $contenu .= '<input type="submit" name="ajout_panier" value="ajout au panier">';
-    $contenu .= '</form>';
-$contenu .= "<br><a href='collection-par-categorie.php?categorie=" . $resultat[0]['Cat_Oeuvre'] . "'>Retour vers la séléction de " . $resultat[0]['Cat_Oeuvre'] . "</a>";
-//--------------------------------- AFFICHAGE HTML ---------------------------------//
-echo $contenu;
+$nom = $resultat['Nom_Oeuvre'];
+$categorie = $resultat['Cat_Oeuvre'];
+$taille = $resultat['Taille'];
+$img = $resultat['Img_Oeuvre'];
+$artiste = $resultat['Artiste'];
+$prix = $resultat['Prix'];
+$ID_Oeuvre = $_GET['ID_Oeuvre'];
 
 
-		//Pied de la page -->
+?>
+<!--//--------------------------------- AFFICHAGE HTML ---------------------------------//-->
+<main>
+    <section class="peinture1-box">
+        <div class="wrapper">
+            <h2><?php echo $nom; ?></h2>
+            <div class="peinture1-box-squre">
+                <img src='<?php echo $img ?>'='150' height='150'>
+            </div>
+            <div class="peinture1-box-rectangle">
+                <h3><?php echo $artiste; ?></h3>
 
-			include ("include/footer.php");
-		?>
- 
+                <p><br><?php echo $taille; ?><br>Oeuvre unique</p>
+                <div class="peinture1-box-squre2">
+                    <h3><?php echo $prix; ?>€</h3>
+
+                    <br>
+                    <p>Livraison sous 1 à 2 semaines <br>
+                        15 jours pour tester l'œuvre chez vous - retour gratuit</p>
+                </div>
+            </div>
+            <form method="post" action="panier.php">
+                <input type='hidden' name='ID_Oeuvre' value='<?php echo $_GET["ID_Oeuvre"] ?>'>
+                <label for="quantite">Quantité : </label>
+                <select id="quantite" name="quantite">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <input type="submit" name="ajout_panier" value="ajout au panier">
+            </form>
+            <br><a href='collection-par-categorie.php?categorie=<?php echo $resultat['Cat_Oeuvre'] ?>'>Retour vers la séléction de <?php echo $resultat['Cat_Oeuvre'] ?></a>
+
+            </form>
+        </div>
+
+</main>
+
+<?php
+//Pied de la page -->
+
+include("include/footer.php");
+?>

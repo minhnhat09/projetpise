@@ -42,7 +42,8 @@ if (isset($_POST['connecter'])) {
         <div id="signup-box">
             <div class="signup-left-box">
                 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-
+                    <!--pour afficher les messages en cas d'erreur-->
+                    <em><?php if(isset($_POST['connecter'])) echo $reponse;?></em>
                     <h1>Connexion</h1>
                     <input type="text" name="pseudo" placeholder="Votre pseudo" required="required" />
                     <input type="password" name="mdp" placeholder="Mot de passe" required="required" />
@@ -52,17 +53,13 @@ if (isset($_POST['connecter'])) {
             <div class="signup-right-box">
                 <h1>Pas encore membre?</h1>
                 </br>
-                <a href="inscription.php">Inscrivez-vous</a>
+                <a href="inscription.php"><input type="submit" value="Inscrivez-vous"/></a>
 
             </div>
             <div class="signup-or">or</div>
         </div>
     </main>
-    <!-- Partie javascript pour afficher les messages en cas d'erreur-->
-    <script type="text/javascript">
-        var message = '<?php echo $reponse; ?>';
-        rep = resultat(message);
-    </script>
+    
 </body>
 <?php
 include("include/footer.php");

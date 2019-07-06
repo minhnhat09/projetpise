@@ -18,8 +18,9 @@ if(!isset($_SESSION))
 					  </div>
 					  
 					  
-						<p>Nous mettons tout en oeuvre pour que les oeuvres que vous commandez sur T&T vous soient acheminées rapidement, 
-			   			   de manière totalement sécurisée, protégée, et assurée, grâce à notre collaboration avec les transporteurs les plus fiables et adaptés au format et à la fragilité des oeuvres à transporter.</p>
+						<p>Nous mettons tout en oeuvre pour que les oeuvres que vous commandez sur T&T 
+						   vous soient acheminées rapidement, de manière totalement 
+						   sécurisée, protégée, et assurée, grâce à notre collaboration avec les transporteurs les plus fiables et adaptés au format et à la fragilité des oeuvres à transporter.</p>
 			  			<h3>Zones de livraison</h3>
 			  			<p>T&T livre les oeuvres toute la France métropolitaine.</p>
 			  			<h3>Délais de livraison</h3>

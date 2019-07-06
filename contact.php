@@ -21,11 +21,11 @@ if(isset($_POST['envoyer'])) { // si le bouton "Envoyer" est appuyé
         }else{
             //on vérifie que le champ sujet est correctement rempli
             if(empty($_POST['sujet'])) {
-                $reponse= "Le champ sujet est vide";
+                $reponse= "Le champ sujet est vide !";
             }else{
                 //on vérifie que le champ message n'est pas vide
                 if(empty($_POST['message'])) {
-                    $reponse= "Le champ message est vide";
+                    $reponse= "Le champ message est vide !";
                 }else{
                     //tout est correctement renseigné, on envoi le mail
 					$reponse= "Le mail a été envoyé avec succès !";
@@ -37,32 +37,41 @@ if(isset($_POST['envoyer'])) { // si le bouton "Envoyer" est appuyé
         }
     }
     
-    echo "<main>";
 
-	if(!isset($TraitementFini)){//quand le membre a remplit, on définira cette variable afin de cacher le formulaire
 		//--------------------------------- AFFICHAGE HTML ---------------------------------//
            
-	?>
-
-			<h1>Nous envoyer un message</h1>
-			<h3>Envoyez-nous votre demande en remplissant ce formulaire</h3>
-		<form action="contact.php" method="post">
-<br/><label for="mail">Mail: </label> <input type="text" name="mail" value="" />
-     
-    <br/><label for="sujet">Sujet: </label><input type="text" name="sujet" value="" />
-     
-    <br/><label for="sujet">Message: </label><textarea name="message" cols="40" rows="20"></textarea>
-     
-    <br/><input type="submit" name="envoyer" value="Envoyer" />
-</form>
-</main>
-
-		
-<?php
+	?>    	
+	    <main>
+	      <h2 class="contact-title">Contact</h2>
+	     
+		  <div id="contact-box">
+          
+		     <h3><br>Pour nous contacter, veuillez remplir le formulaire ci-dessous:  </h3> 
+		     <div class="contact-small-box">
+             <?php echo "<h3><small>". $reponse. "</small></h3>" ;
+          if(!isset($TraitementFini)){//quand le membre a remplit, on définira cette variable afin de cacher le formulaire
+            ?>
+				<form action="contact.php" method="post">
+							
+							<input type="text" name="mail" placeholder="Mail*"/>
+	 
+							<input type="text" name="sujet" placeholder="Sujet*" />
+	 
+				     
+				      
+				     <textarea name="message" placeholder="Message*"></textarea>
+				      
+				     <input type="submit" name="envoyer" value="Envoyer" />
+                </form>
+            </div>
+            <?php
         }
-        echo "<em>". $reponse. "</em></main>";
+        
 
-        ?>	  
+        ?> 
+          </div> 
+    </main>		
+	  
 		
 		<!-- Pied de la page -->
 		<?php
